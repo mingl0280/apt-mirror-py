@@ -1,0 +1,25 @@
+Source: apt-mirror-py
+Section: admin
+Priority: optional
+Maintainer: apt-mirror-py contributors <3364434+mingl0280@users.noreply.github.com>
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-python,
+ pybuild-plugin-pyproject,
+ python3-all,
+ python3-setuptools,
+Rules-Requires-Root: no
+Standards-Version: 4.6.2
+Homepage: https://github.com/mingl0280/apt-mirror-py
+Vcs-Git: https://github.com/mingl0280/apt-mirror-py.git
+Vcs-Browser: https://github.com/mingl0280/apt-mirror-py
+
+Package: apt-mirror-py
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${python3:Depends},
+Description: mirror Debian-style package repositories
+ apt-mirror-py downloads repository metadata and package archives into an
+ apt-mirror-compatible host and path layout. It supports legacy mirror.list
+ files, Deb822 sources, parallel downloads, cleanup, and systemd scheduling.

@@ -1,0 +1,3 @@
+deploy/apt-mirror-py.service usr/lib/systemd/system
+deploy/apt-mirror-py.timer usr/lib/systemd/system
+deploy/migrate-mirror-config.sh usr/lib/apt-mirror-py

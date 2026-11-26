@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+apt-mirror-py --help >/dev/null
+python3 -c 'import apt_mirror'

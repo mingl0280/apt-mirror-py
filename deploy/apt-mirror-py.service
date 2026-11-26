@@ -8,7 +8,7 @@ ConditionPathExists=/etc/apt/mirror.list
 [Service]
 Type=oneshot
 User=root
-ExecStart=/usr/local/bin/apt-mirror-py
+ExecStart=apt-mirror-py
 TimeoutStartSec=infinity
 Environment=PYTHONUNBUFFERED=1
 StandardOutput=journal

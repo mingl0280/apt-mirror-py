@@ -115,6 +115,22 @@ python3 -m unittest discover -s tests -v
 The live deployment and APT consumer checks are recorded in
 `DEPLOYMENT_SMOKE.md`.
 
+## Debian packages and releases
+
+Every pull request and push runs the Python test suite, builds the native
+Debian package, and install-tests that package in Debian 12 and Ubuntu 24.04
+containers. A tag matching `v*` also creates a GitHub release containing the
+`.deb`, `.changes`, and `.buildinfo` files. The package installs the systemd
+service and timer in a disabled, stopped state.
+
+Build the same package locally on Debian or Ubuntu with:
+
+```sh
+sudo apt-get install build-essential debhelper dh-python \
+  pybuild-plugin-pyproject python3-all python3-setuptools
+dpkg-buildpackage --no-sign --build=binary
+```
+
 ## Per-item performance trace
 
 Timing is disabled by default. Pass `--perf` with a new JSON Lines path to
