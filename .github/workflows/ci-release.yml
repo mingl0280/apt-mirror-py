@@ -22,8 +22,8 @@ jobs:
       matrix:
         python: ['3.10', '3.11', '3.12', '3.13']
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python }}
       - name: Compile sources
@@ -36,7 +36,7 @@ jobs:
     needs: test
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install build dependencies
         run: |
           sudo apt-get update
@@ -50,7 +50,7 @@ jobs:
           mkdir -p dist
           cp ../apt-mirror-py_*.deb ../apt-mirror-py_*.changes \
             ../apt-mirror-py_*.buildinfo dist/
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: apt-mirror-py-debian-package
           path: dist/
@@ -70,7 +70,7 @@ jobs:
             image: ubuntu:24.04
     container: ${{ matrix.image }}
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: apt-mirror-py-debian-package
           path: dist
@@ -89,7 +89,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: apt-mirror-py-debian-package
           path: dist
