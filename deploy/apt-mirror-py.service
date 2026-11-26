@@ -1,0 +1,16 @@
+[Unit]
+Description=Update APT mirror with apt-mirror-py
+Wants=network-online.target
+After=network-online.target
+RequiresMountsFor=/sources
+ConditionPathExists=/etc/apt/mirror.list
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/local/bin/apt-mirror-py
+TimeoutStartSec=infinity
+Environment=PYTHONUNBUFFERED=1
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=apt-mirror-py

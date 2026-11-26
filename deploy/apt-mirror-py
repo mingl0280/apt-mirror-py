@@ -1,0 +1,5 @@
+#!/bin/sh
+# Console entry point for the isolated /opt/apt-mirror-py deployment.
+PYTHONPATH="/opt/apt-mirror-py${PYTHONPATH:+:$PYTHONPATH}"
+export PYTHONPATH
+exec python3 -m apt_mirror "$@"

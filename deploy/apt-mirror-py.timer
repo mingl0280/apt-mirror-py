@@ -1,0 +1,11 @@
+[Unit]
+Description=Update APT mirror every six hours
+
+[Timer]
+OnCalendar=*-*-* 00/6:00:00
+Persistent=false
+AccuracySec=1min
+Unit=apt-mirror-py.service
+
+[Install]
+WantedBy=timers.target
