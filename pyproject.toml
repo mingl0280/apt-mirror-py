@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "apt-mirror-py"
+version = "0.1.0"
+description = "Python APT repository mirror tool"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+apt-mirror-py = "apt_mirror.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["apt_mirror*"]
